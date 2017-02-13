@@ -4,6 +4,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="IE10 Test Drive Demo">
     <meta name="t_omni_demopage" content="1">
+    <meta name="viewport" content="maximum-scale=1.0, user-scalable=no"/>
     <title>Love is in the air</title>
     <link rel="image_src" href="https://testdrive-archive.azurewebsites.net/Views/Homepage/Icons/LoveIsInTheAir.png">
     <link rel="stylesheet" type="text/css" href="./qingrenjie_files/ReturnAndShareControls.css">
@@ -12,20 +13,25 @@
     <style>
         .tip-text{
             font-family: '幼圆','微软雅黑' !important;
-            font-size: 20px !important;
+            font-size: 40px !important;
             transition: 1s;
             transform: scale(0.8);
         }
+        p#message{
+            font-size: 30px;
+            height: 300px;
+            transition: 2s;
+        }
     </style>   
 </head>
-<body>
+<body id="body">
     <div id="ReturnAndShareControls"></div>
     <div id="compatibilityWarning" class="hidden"><span id="downloadModernMessage"></span><br><br><a href="https://testdrive-archive.azurewebsites.net/performance/loveisintheair/" id="downloadModernURL"></a></div>
     <div id="sceneContainer" class="">
         <canvas id="backgroundGradient" width="2320" height="1301"></canvas>
         <div id="postcardContainer">
             <p id="message"></p>
-            <div id="postcard"><canvas width="500" height="500" class="clearCanvas" style="z-index: 1;"></canvas></div>
+            <div id="postcard"><canvas id="fixC" width="500" height="500" class="clearCanvas" style="z-index: 1;"></canvas></div>
             <p class="tip-text" id="hint" style="opacity: 0;">点击擦除红心</p>
             <div id="actorContainer">
                 <img src="zhangxiaotu.png" width="300">
@@ -70,7 +76,42 @@
 
 
     </div>
+    
     <audio id="music" loop="" src="./res/LoveSong.mp3" autoplay=""></audio>
+    <script type="text/javascript">
+    var u = navigator.userAgent;
+    var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+    var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+    if (isAndroid || isiOS) {
+        alert('张小兔最好用电脑浏览器看哦⌒(=∵=)⌒')
+        var e2 = document.getElementById("postcard");
+        var m = document.getElementById("message");
+        if(e2.addEventListener)
+            e2.addEventListener("click",fixC,false);
+        if(e2.attachEvent)
+            e2.attachEvent("onclick",fixC);
+
+        function fixC() {
+            e2.style.display = 'none'
+            m.style.height = '400px'
+            m.style.fontSize = '40px'
+        }
+    }
+    // alert('是否是Android：'+isAndroid);
+    // alert('是否是iOS：'+isiOS);
+    var el = document.getElementById("body");
+    var music1 = document.getElementById("music");
+    if(el.addEventListener)
+        el.addEventListener("click",functionName,false);
+    if(el.attachEvent)
+        el.attachEvent("onclick",functionName);
+
+    function functionName(){
+        if (music1.paused) {
+            music1.play()
+        }
+    }
+    </script>
     <!-- theme, parameters and resources -->
     <script type="text/javascript" src="./qingrenjie_files/theme.js"></script>
     <!-- common libraries -->
