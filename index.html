@@ -2,7 +2,7 @@
 <!-- saved from url=(0071)https://testdrive-archive.azurewebsites.net/performance/loveisintheair/ -->
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="IE10 Test Drive Demo">
+    <meta name="description" content="送给张小兔同学">
     <meta name="t_omni_demopage" content="1">
     <meta name="viewport" content="maximum-scale=1.0, user-scalable=no"/>
     <title>Love is in the air</title>
@@ -79,38 +79,41 @@
     
     <audio id="music" loop="" src="./res/LoveSong.mp3" autoplay=""></audio>
     <script type="text/javascript">
-    var u = navigator.userAgent;
-    var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
-    var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
-    if (isAndroid || isiOS) {
-        alert('张小兔最好用电脑浏览器看哦⌒(=∵=)⌒')
-        var e2 = document.getElementById("postcard");
-        var m = document.getElementById("message");
-        if(e2.addEventListener)
-            e2.addEventListener("click",fixC,false);
-        if(e2.attachEvent)
-            e2.attachEvent("onclick",fixC);
+    Window.onload = function(){
+        var u = navigator.userAgent;
+        var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+        var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+        if (isAndroid || isiOS) {
+            alert('张小兔最好用电脑浏览器看哦⌒(=∵=)⌒')
+            var e2 = document.getElementById("postcard");
+            var m = document.getElementById("message");
+            if(e2.addEventListener)
+                e2.addEventListener("click",fixC,false);
+            if(e2.attachEvent)
+                e2.attachEvent("onclick",fixC);
 
-        function fixC() {
-            e2.style.display = 'none'
-            m.style.height = '400px'
-            m.style.fontSize = '40px'
+            function fixC() {
+                e2.style.display = 'none'
+                m.style.height = '400px'
+                m.style.fontSize = '40px'
+            }
+        }
+        // alert('是否是Android：'+isAndroid);
+        // alert('是否是iOS：'+isiOS);
+        var el = document.getElementById("body");
+        var music1 = document.getElementById("music");
+        if(el.addEventListener)
+            el.addEventListener("click",functionName,false);
+        if(el.attachEvent)
+            el.attachEvent("onclick",functionName);
+
+        function functionName(){
+            if (music1.paused) {
+                music1.play()
+            }
         }
     }
-    // alert('是否是Android：'+isAndroid);
-    // alert('是否是iOS：'+isiOS);
-    var el = document.getElementById("body");
-    var music1 = document.getElementById("music");
-    if(el.addEventListener)
-        el.addEventListener("click",functionName,false);
-    if(el.attachEvent)
-        el.attachEvent("onclick",functionName);
-
-    function functionName(){
-        if (music1.paused) {
-            music1.play()
-        }
-    }
+    
     </script>
     <!-- theme, parameters and resources -->
     <script type="text/javascript" src="./qingrenjie_files/theme.js"></script>
