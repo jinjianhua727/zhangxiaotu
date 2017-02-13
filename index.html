@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<!-- saved from url=(0071)https://testdrive-archive.azurewebsites.net/performance/loveisintheair/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="IE10 Test Drive Demo">
+    <meta name="t_omni_demopage" content="1">
+    <title>Love is in the air</title>
+    <link rel="image_src" href="https://testdrive-archive.azurewebsites.net/Views/Homepage/Icons/LoveIsInTheAir.png">
+    <link rel="stylesheet" type="text/css" href="./qingrenjie_files/ReturnAndShareControls.css">
+    <link rel="Stylesheet" href="./qingrenjie_files/default.css">
+    <link rel="shortcut icon" href="./zhangxiaotu.ico"> 
+    <style>
+        .tip-text{
+            font-family: '幼圆','微软雅黑' !important;
+            font-size: 20px !important;
+            transition: 1s;
+            transform: scale(0.8);
+        }
+    </style>   
+</head>
+<body>
+    <div id="ReturnAndShareControls"></div>
+    <div id="compatibilityWarning" class="hidden"><span id="downloadModernMessage"></span><br><br><a href="https://testdrive-archive.azurewebsites.net/performance/loveisintheair/" id="downloadModernURL"></a></div>
+    <div id="sceneContainer" class="">
+        <canvas id="backgroundGradient" width="2320" height="1301"></canvas>
+        <div id="postcardContainer">
+            <p id="message"></p>
+            <div id="postcard"><canvas width="500" height="500" class="clearCanvas" style="z-index: 1;"></canvas></div>
+            <p class="tip-text" id="hint" style="opacity: 0;">点击擦除红心</p>
+            <div id="actorContainer">
+                <img src="zhangxiaotu.png" width="300">
+                <!-- <img unselectable="on" src="./qingrenjie_files/MonsterLegs.svg" class="actorLegs rotateLeft" style="z-index: 100;">
+                <img unselectable="on" src="./qingrenjie_files/EMonster.png" class="actorHead rotateRight" style="z-index: 100;"> -->
+            </div>
+            <canvas id="lightCanvas" width="1920" height="901"></canvas>
+            <canvas id="particlesCanvas" width="1920" height="901"></canvas>
+        </div>
+        <!-- 红心速度 -->
+        <div id="systemInformation" class="si" style="display: none;">
+            <span id="particlesCountLabel">Hearts</span>:
+            <select id="siParticles">
+                <option value="auto">Automatic</option>
+                <option value="100">100</option>
+                <option value="250" selected="selected">250</option>
+                <option value="500">500</option>
+                <option value="1000">1000</option>
+                <option value="2000">2000</option>
+                <option value="4000">4000</option>
+            </select>
+            <span id="siParticlesCount"></span>
+            <br>
+            Window size: <span id="siResolution">1920x901</span>&nbsp;<img id="muteControl" src="./qingrenjie_files/button_audio_loud_white.png">
+        </div>
+
+        <!-- 红心速度 -->
+        <div id="systemInformationFps" class="si" style="display: none;">
+            Current fps: <span id="siFps">60</span>
+        </div>
+    
+    <!-- 红心速度 -->
+    <div id="personalMessageEditor" style="display: none;right: -425px;">
+        <p id="createPersonalMessage">Personalize!</p>   
+            <textarea id="messageTextEditor"></textarea>
+            <div id="shareControls">
+                <a class="hidden" id="copyPersonalURL">Copy URL</a>
+                <a class="shareButton" id="shareTwitter" href="http://twitter.com/share" target="_blank">Share on Twitter</a>
+                <a class="shareButton" id="shareFacebook" href="https://www.facebook.com/sharer.php?u=link&amp;t=title" target="_blank">Share on Facebook</a>
+            </div>
+    </div>  
+
+
+    </div>
+    <audio id="music" loop="" src="./res/LoveSong.mp3" autoplay=""></audio>
+    <!-- theme, parameters and resources -->
+    <script type="text/javascript" src="./qingrenjie_files/theme.js"></script>
+    <!-- common libraries -->
+    <script type="text/javascript" src="./qingrenjie_files/classes.js"></script>
+    <script type="text/javascript" src="./qingrenjie_files/touch.js"></script>
+    <script type="text/javascript" src="./qingrenjie_files/animation.js"></script>
+    <script type="text/javascript" src="./qingrenjie_files/gfx.js"></script>
+    <!-- actor -->
+    <script type="text/javascript" src="./qingrenjie_files/actor.js"></script>
+    <!-- holidays postcard -->
+    <script type="text/javascript" src="./qingrenjie_files/postcard.js"></script>
+    <!-- stars and snowflakes -->
+    <script type="text/javascript" src="./qingrenjie_files/particles.js"></script>
+    <!-- system information -->
+    <script type="text/javascript" src="./qingrenjie_files/systemInformation.js"></script>
+    <!-- gradient animation -->
+    <script type="text/javascript" src="./qingrenjie_files/gradient.js"></script>
+    <!-- secret lights animation -->
+    <script type="text/javascript" src="./qingrenjie_files/lights.js"></script>
+    <!-- UI and initialization code -->
+    <script type="text/javascript" src="./qingrenjie_files/default.js"></script>
+    <!-- testdrive standard -->
+    <script type="text/javascript" src="./qingrenjie_files/TestDriveCommon.js"></script>
+    <script type="text/javascript" src="./qingrenjie_files/ReturnAndShareControls.js"></script>
+
+
+</body></html>
