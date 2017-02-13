@@ -33,6 +33,7 @@ Animation = (function () {
 
     // detecting requestAnimationFrame feature
     function getRequestAnimationFrame(code) {
+        // console.log('getRequestAnimationFrame')
         if (window.requestAnimationFrame) {
             return window.requestAnimationFrame(code);
         } else if (window.msRequestAnimationFrame) {

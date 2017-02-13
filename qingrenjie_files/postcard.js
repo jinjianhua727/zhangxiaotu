@@ -47,6 +47,7 @@ Postcard = (function () {
     }
 
     function hideHint() {
+        
         hint.style.opacity = 0;
     }
 
@@ -175,6 +176,7 @@ Postcard = (function () {
 
     // mouse and touch (IE) handlers
     function pointerDownHandler(evt) {
+        console.log('pointerDownHandler')
         hideHint();
         Touch.preventEvents(evt);
         pointerDown = true;
@@ -209,7 +211,7 @@ Postcard = (function () {
 
         // create mask image and chain other methods
         createMaskImage(mode);
-
+        console.log(1)
         // touch events (IE) if supported
         if (window.navigator.msPointerEnabled) {
             postcardContainer.addEventListener("MSPointerDown", pointerDownHandler);
@@ -217,10 +219,16 @@ Postcard = (function () {
             postcardContainer.addEventListener("MSPointerCancel", pointerUpHandler);
             postcardContainer.addEventListener("MSPointerMove", pointerMoveHandler);
         } else {
-            postcardContainer.addEventListener("mousedown", pointerDownHandler);
-            postcardContainer.addEventListener("mouseup", pointerUpHandler);
+            console.log(3)
+             var hastouch = "ontouchstart" in window ? true : false,
+                tapstart = hastouch ? "touchstart" : "mousedown",
+                tapmove = hastouch ? "touchmove" : "mousemove",
+                tapend = hastouch ? "touchend" : "mouseup";
+            console.log(tapstart)
+            postcardContainer.addEventListener(tapstart, pointerDownHandler);
+            postcardContainer.addEventListener(tapend, pointerUpHandler);
             postcardContainer.addEventListener("mouseleave", pointerUpHandler);
-            postcardContainer.addEventListener("mousemove", pointerMoveHandler);
+            postcardContainer.addEventListener(tapmove, pointerMoveHandler);
         }
     }
 

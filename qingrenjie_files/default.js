@@ -48,6 +48,7 @@ var App = (function () {
     var copyResult = document.getElementById("copyResult");
 
     if (document.addEventListener) {
+
         document.addEventListener("DOMContentLoaded", function () {
 
             // initialize personal message editor
